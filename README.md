@@ -1,22 +1,10 @@
-# mini-rag
+# Rag_Project
 
 This is a minimal implementation of the RAG model for question answering.
 
 ## Requirements
 
-- Python 3.8 or later
-
-#### Install Python using MiniConda
-
-1) Download and install MiniConda from [here](https://docs.anaconda.com/free/miniconda/#quick-command-line-install)
-2) Create a new environment using the following command:
-```bash
-$ conda create -n mini-rag python=3.8
-```
-3) Activate the environment:
-```bash
-$ conda activate mini-rag
-```
+- Python 3.12.2 or later
 
 ## Installation
 
@@ -61,15 +49,8 @@ $ ollama serve
 $ uvicorn main:app --reload --host 0.0.0.0 --port 5000
 ```
 
-## POSTMAN Collection
 
-Download the POSTMAN collection from [/assets/mini-rag-dev.postman_collection.json](/assets/mini-rag-dev.postman_collection.json)
-
-## API Docs
-
-- Swagger UI: http://localhost:5000/docs
-
-## APIs
+## APIs Stape
 
 ### 1) Upload a document
 
@@ -85,11 +66,11 @@ This step includes:
    
 2) Chunking the text into documents
 
-![alt text](src/assets/images/1.png)
+![alt text](images/1.png)
 
 3) Indexing the documents into LanceDB
    
-![alt text](src/assets/images/2.png)
+![alt text](images/2.png)
 
 ```bash
 curl --location --request POST 'http://localhost:5000/api/v1/process/1' \
@@ -110,7 +91,7 @@ This step includes:
    
 2) Search for similar documents using the embeddings / or / keywords
 
-![alt text](src/assets/images/3.png)
+![alt text](images/3.png)
 
 ```bash
 curl --location --request POST 'http://localhost:5000/api/v1/search/1' \
@@ -134,7 +115,7 @@ This step includes:
    
 4) Pass the prompt to the LLM model to get the answer
    
-![alt text](src/assets/images/4.png)
+![alt text](images/4.png)
 
 ```bash
 curl --location --request POST 'http://localhost:5000/api/v1/answer/1' \
