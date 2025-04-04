@@ -8,6 +8,25 @@ This is a minimal implementation of the RAG model for question answering.
 
 ## Installation
 
+### étapes pour lancer FastAPI avec Uvicorn sans Conda
+1-Créer l'environnement virtuel :
+
+```bash
+$ python3 -m venv venv
+```
+2-Activer l'environnement virtuel :
+```bash
+$ source venv/bin/activate
+```
+3-Installer les dépendances (FastAPI et Uvicorn) :
+```bash
+$ pip install fastapi uvicorn
+```
+4-Lancer l'application FastAPI :
+```bash
+$ uvicorn main:app --reload
+```
+
 ### Install the required packages
 
 ```bash
