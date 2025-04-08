@@ -28,6 +28,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+# Ignorer l'environnement virtuel
 venv/
 
 # PyInstaller
@@ -167,3 +168,4 @@ assets/*
 !assets/mini-rag*
 !assets/images
 !assets/images/*
+venv/
