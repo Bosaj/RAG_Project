@@ -28,6 +28,8 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+# Ignorer l'environnement virtuel
+venv/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -166,3 +168,9 @@ assets/*
 !assets/mini-rag*
 !assets/images
 !assets/images/*
+venv/
+venv/
+__pycache__/
+.vscode/
+*.pyc
+*.log
