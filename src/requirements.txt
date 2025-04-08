@@ -5,3 +5,4 @@ pandas==2.2.3
 pydantic-settings==2.8.1
 numpy == 2.2.4
 python-dotenv == 1.1.0
+aiofiles == 24.1.0
