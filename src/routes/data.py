@@ -3,7 +3,6 @@ from fastapi.responses import JSONResponse
 import os
 from helpers.config import get_settings, Settings
 from controllers import DataController, ProjectController
-import aiofiles
 from models import ResponseSignal
 import logging
 
@@ -37,9 +36,10 @@ async def upload_data(project_id: str, file: UploadFile,
             project_id=project_id
         )
 
-        async with aiofiles.open(file_path, "wb") as f:
-            while chunk := await file.read(app_settings.FILE_DEFAULT_CHUNK_SIZE):
-                await f.write(chunk)
+        # Ouvrir le fichier en mode binaire pour l'écriture
+        with open(file_path, "wb") as buffer:
+            content = await file.read()  # Lire le contenu du fichier téléchargé
+            buffer.write(content)  # Écrire ce contenu dans le fichier local
 
         return JSONResponse(
             content={

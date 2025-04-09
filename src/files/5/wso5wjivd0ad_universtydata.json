@@ -1,0 +1,1207 @@
+{
+    "intents":[
+  {
+    "intent": "greeting",
+    "text": [
+       "Salut",
+       "Comment ça va ?",
+       "Quelqu'un est là ?",
+       "Bonjour",
+       "Bonne journée",
+       "Quoi de neuf",
+       "Comment vas-tu",
+       "Coucou",
+       "Salut",
+       "??? ??? ??"
+    ],
+    "responses": [
+       "Bonjour !",
+       "Ravi de vous revoir !",
+       "Salut, comment puis-je vous aider ?"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "GreetingUserRequest",
+        "clear": false
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "goodbye",
+    "text": [
+       "à plus",
+       "à bientôt",
+       "bye bye",
+       "À plus tard",
+       "Au revoir",
+       "Je pars",
+       "Bye",
+       "Bonne journée",
+       "On se parle plus tard",
+       "ttyl",
+       "Je dois y aller",
+       "gtg"
+    ],
+    "responses": [
+       "Dommage de vous voir partir :(",
+       "À bientôt",
+       "Au revoir !",
+       "Revenez vite"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "LeavingUserRequest",
+        "clear": false
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "creator",
+    "text": [
+       "Quel est le nom de vos développeurs",
+       "Quel est le nom de vos créateurs",
+       "Quel est le nom des développeurs",
+       "Quel est le nom des créateurs",
+       "Qui vous a créé",
+       "Vos développeurs",
+       "Vos créateurs",
+       "Qui sont vos développeurs",
+       "Développeurs",
+       "Vous êtes créé par",
+       "Vous êtes créé par qui",
+       "Qui vous a créé",
+       "Qui vous a créé",
+       "Créateurs",
+       "Qui vous a fait",
+       "Qui vous a conçu"
+    ],
+    "responses": [
+       "Des étudiants universitaires de l' ENIAD"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+  },
+  "context":  {
+        "in": "",
+        "out": "AskingCreator",
+        "clear": true
+  },
+  "entityType": "NA",
+  "entities": []
+ },
+  {
+    "intent": "name",
+    "text": [
+       "nom",
+       "ton nom",
+       "As-tu un nom",
+       "Comment t'appelles-tu",
+       "Quel est ton nom",
+       "Comment dois-je t'appeler",
+       "Quel est ton nom ?",
+       "Qu'es-tu",
+       "Qui es-tu",
+       "Qui est-ce",
+       "À qui je parle",
+       "Qui est là",
+       "Qu'es-tu"
+    ],
+    "responses": [
+       "Tu peux m'appeler ENIAD assistant.",
+       "Je suis ENIAD assistant",
+       "Je suis un Chatbot ENIAD assistant.",
+       "Je suis ton ENIAD assistant"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "AskingMyName",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "hours",
+    "text": [
+       "horaires de l'université",
+       "Quels sont les horaires de l'université",
+       "jours de travail",
+       "Quand êtes-vous ouvert",
+       "Quels sont vos horaires",
+       "heures d'ouverture",
+       "Quand l'université est-elle ouverte",
+       "horaires de l'université",
+       "Qu'en est-il des horaires de l'université",
+       "L'université est-elle ouverte le samedi",
+       "Dis-moi quelque chose sur les horaires de l'université",
+       "Quelles sont les heures d'ouverture de l'université",
+       "Quand dois-je venir à l'université",
+       "Quand dois-je assister aux cours",
+       "Quel est mon horaire universitaire",
+       "horaires de l'université",
+       "horaires université"
+    ],
+    "responses": [
+       "L'université est ouverte de 8h à 17h du lundi au samedi !"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "CollegeTimings",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "number",
+    "text": [
+       "plus d'informations",
+       "coordonnées",
+       "comment contacter l'université",
+       "numéro de téléphone de l'université",
+       "numéro de l'université",
+       "Quel est votre numéro de contact",
+       "Numéro de contact ?",
+       "comment vous appeler",
+       "Numéro de téléphone de l'université ?",
+       "comment puis-je vous contacter",
+       "Puis-je avoir votre numéro de téléphone",
+       "comment puis-je vous appeler",
+       "numéro de téléphone",
+       "numéro de tel",
+       "appeler"
+    ],
+    "responses": [
+       "Vous pouvez nous contacter au : NUMÉRO"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "ContactRequest",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "course",
+    "text": [
+       "liste des cours",
+       "liste des cours proposés",
+       "liste des cours proposés en",
+       "Quels sont les cours proposés dans votre université ?",
+       "cours ?",
+       "cours proposés",
+       "cours proposés dans (nom de votre université (UNI))",
+       "cours que vous proposez",
+       "branches ?",
+       "cours disponibles à UNI ?",
+       "branches disponibles dans votre université ?",
+       "Quels sont les cours à UNI ?",
+       "Quelles sont les branches à UNI ?",
+       "Quels sont les cours à UNI ?",
+       "branches disponibles à UNI ?",
+       "Pouvez-vous me dire les cours disponibles à UNI ?",
+       "Pouvez-vous me dire les branches disponibles à UNI ?",
+       "génie informatique ?",
+       "informatique",
+       "Génie informatique ?",
+       "it",
+       "IT",
+       "Technologie de l'information",
+       "IA/ML",
+       "Génie mécanique",
+       "Génie chimique",
+       "Génie civil"
+    ],
+    "responses": [
+       "Notre université propose des formations en Technologie de l'information, Génie informatique, Génie mécanique, Génie chimique, Génie civil et autres."
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "AskingCourses",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "fees",
+    "text": [
+       "informations sur les frais",
+       "informations concernant les frais",
+       "dis-moi les frais",
+       "frais de l'université",
+       "frais par semestre",
+       "Quels sont les frais de chaque semestre",
+       "Quels sont les frais de chaque année",
+       "Quels sont les frais",
+       "Quels sont les frais",
+       "Combien coûtent les frais",
+       "frais pour la première année",
+       "frais",
+       "à propos des frais",
+       "dis-moi quelque chose sur les frais",
+       "Quels sont les frais de l'internat",
+       "Combien coûtent les frais",
+       "frais d'internat",
+       "frais pour une chambre climatisée",
+       "frais pour une chambre non climatisée",
+       "frais pour une chambre climatisée pour filles",
+       "frais pour une chambre non climatisée pour filles",
+       "frais pour une chambre climatisée pour garçons",
+       "frais pour une chambre non climatisée pour garçons"
+    ],
+    "responses": [
+       "Pour les détails des frais, visitez <a target=\"_blank\" href=\"LIEN\"> ici</a>"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "FeeStructure",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "location",
+    "text": [
+       "Où est située l'université",
+       "L'université est située à",
+       "Où est l'université",
+       "Où est située l'université",
+       "adresse de l'université",
+       "comment se rendre à l'université",
+       "localisation de l'université",
+       "adresse de l'université",
+       "Où est l'université",
+       "comment puis-je me rendre à l'université",
+       "Quelle est l'adresse de l'université",
+       "Quelle est l'adresse de l'université",
+       "adresse",
+       "localisation"
+    ],
+    "responses": [
+       "<a target=\"_blank\" href=\"AJOUTEZ VOTRE LIEN GOOGLE MAP ICI\"> ici</a>"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+  " context":  {
+        "in": "",
+        "out": "AddressOfCollege",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "hostel",
+    "text": [
+       "service d'internat",
+       "service d'internat",
+       "localisation de l'internat",
+       "adresse de l'internat",
+       "services d'internat",
+       "frais d'internat",
+       "L'université propose-t-elle un internat",
+       "Y a-t-il un internat",
+       "Où est l'internat",
+       "Avez-vous un internat",
+       "Avez-vous un internat",
+       "internat",
+       "capacité de l'internat",
+       "Quels sont les frais de l'internat",
+       "comment intégrer l'internat",
+       "Quelle est l'adresse de l'internat",
+       "À quelle distance est l'internat de l'université",
+       "distance entre l'internat et l'université",
+       "Où est l'internat",
+       "Quelle est la taille de l'internat",
+       "distance entre l'université et l'internat",
+       "distance entre l'internat et l'université"
+    ],
+    "responses": [
+       "Pour les détails de l'internat, visitez <a target=\"_blank\" href=\"AJOUTEZ VOTRE LIEN PDF OU AUTRE LIEN D'INFORMATIONS\"> ici</a>"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "HostelRelatedQueries",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "event",
+    "text": [
+       "événements organisés",
+       "liste des événements",
+       "liste des événements organisés à l'université",
+       "liste des événements organisés à l'université",
+       "Quels événements sont organisés à l'université",
+       "Y a-t-il des événements organisés à l'université",
+       "Événements ?",
+       "fonctions",
+       "Quels sont les événements",
+       "parle-moi des événements",
+       "Qu'en est-il des événements"
+    ],
+    "responses": [
+       "Pour les détails des événements, visitez <a target=\"_blank\" href=\"AJOUTEZ VOTRE LIEN OU RÉPONSE PERSONNALISÉE\"> ici</a>"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "EventRelatedQueries",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "document",
+    "text": [
+       "documents à apporter",
+       "documents nécessaires pour l'admission",
+       "documents nécessaires au moment de l'admission",
+       "documents nécessaires pendant l'admission",
+       "documents requis pour l'admission",
+       "documents requis au moment de l'admission",
+       "documents requis pendant l'admission",
+       "Quels documents sont requis pour l'admission",
+       "Quels documents apporter pour l'admission",
+       "documents",
+       "quels documents ai-je besoin",
+       "quels documents dois-je fournir pour l'admission",
+       "documents nécessaires"
+    ],
+    "responses": [
+       "Pour en savoir plus sur les documents requis, visitez <a target=\"_blank\" href=\"LIEN DU DOCUMENT D'ADMISSION\"> ici</a>"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "DocumentsForAdmission",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "floors",
+    "text": [
+       "taille du campus",
+       "taille du bâtiment",
+       "Combien d'étages a l'université",
+       "étages de l'université",
+       "étages de l'université",
+       "quelle est la hauteur du bâtiment de l'université UNI",
+       "étages"
+    ],
+    "responses": [
+       "Mon université a un total de 2 étages"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "FloorQueries",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "syllabus",
+    "text": [
+       "Programme pour IT",
+       "Quel est le programme de Technologie de l'information",
+       "programme",
+       "emploi du temps",
+       "Quel est le programme IT",
+       "programme",
+       "Quelle est la prochaine leçon"
+    ],
+    "responses": [
+       "L'emploi du temps est fourni directement aux étudiants OU Pour connaître le programme, visitez <a target=\"_blank\" href=\"LIEN DE L'EMPLOI DU TEMPS\"> ici</a>"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "SyllabusQueries",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "library",
+    "text": [
+       "Y a-t-il une bibliothèque",
+       "service de bibliothèque",
+       "services de bibliothèque",
+       "Avez-vous une bibliothèque",
+       "L'université a-t-elle une bibliothèque",
+       "bibliothèque universitaire",
+       "Où puis-je obtenir des livres",
+       "service de livres",
+       "Où est la bibliothèque",
+       "Bibliothèque",
+       "Informations sur la bibliothèque",
+       "Informations sur les livres de la bibliothèque",
+       "Parle-moi de la bibliothèque",
+       "combien de bibliothèques"
+    ],
+    "responses": [
+       "Il y a une grande et spacieuse bibliothèque. Les horaires sont de 8h à 18h et pour plus d'informations, visitez <a target=\"blank\" href=\"LIEN DES DÉTAILS DE LA BIBLIOTHÈQUE\">ici</a>"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "LibraryHours",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "infrastructure",
+    "text": [
+       "Comment est l'infrastructure de l'université",
+       "infrastructure",
+       "infrastructure de l'université"
+    ],
+    "responses": [
+       "Notre université a une excellente infrastructure. Le campus est propre. De bons laboratoires informatiques avec une bonne connexion internet."
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "Infra",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "canteen",
+    "text": [
+       "services de restauration",
+       "services de cantine",
+       "service de cantine",
+       "Y a-t-il une cantine",
+       "Y a-t-il une cafétéria à l'université",
+       "L'université a-t-elle une cantine",
+       "Où est la cantine",
+       "Où est la cafétéria",
+       "cantine",
+       "Nourriture",
+       "Cafétéria"
+    ],
+    "responses": [
+       "Notre université a une cantine avec une variété de plats disponibles"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+  " context":  {
+        "in": "",
+        "out": "Snacking",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "menu",
+    "text": [
+       "menu de la cantine",
+       "nourriture en cantine",
+       "Qu'y a-t-il au menu",
+       "Qu'est-ce qui est disponible à la cantine universitaire",
+       "Quels plats peut-on obtenir à la cantine universitaire",
+       "variété de plats",
+       "Qu'y a-t-il à manger ?"
+    ],
+    "responses": [
+       "Nous servons des Frankies, Locho, Alu-puri, Kachori, Khavsa, Thaali et bien plus encore au menu"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "Menu",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "placement",
+    "text": [
+       "Quels sont les placements de l'université",
+       "Quelles entreprises visitent l'université",
+       "Quel est le salaire moyen",
+       "entreprises visitantes",
+       "salaire",
+       "À propos des placements",
+       "placements",
+       "recrutement",
+       "entreprises"
+    ],
+    "responses": [
+       "Pour en savoir plus sur les placements, visitez <a target=\"_blank\" href=\"LIEN DES INFORMATIONS SUR LES PLACEMENTS\">ici</a>"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "Placements",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "ithod",
+    "text": [
+       "Qui est le chef de département",
+       "Où est le chef de département",
+       "chef de département IT",
+       "nom du chef de département IT"
+    ],
+    "responses": [
+       "Tous les départements d'ingénierie ont un seul chef de département XYZ qui est disponible à (nom du lieu)"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "HODs",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "computerhod",
+    "text": [
+       "Qui est le chef de département informatique",
+       "Où est le chef de département informatique",
+       "chef de département informatique",
+       "nom du chef de département informatique"
+    ],
+    "responses": [
+       "Tous les départements d'ingénierie ont un seul chef de département XYZ qui est disponible à (NOM DU LIEU)"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "ComputerHOD",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "extchod",
+    "text": [
+       "Qui est le chef de département EXTC",
+       "Où est le chef de département EXTC",
+       "chef de département EXTC",
+       "nom du chef de département EXTC"
+    ],
+    "responses": [
+       "Les chefs de département diffèrent selon les écoles. Soyez plus précis avec votre école ou département."
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "DiffHODs",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "principal",
+    "text": [
+       "Quel est le nom du directeur",
+       "Quel est le nom du directeur",
+       "nom du directeur",
+       "Qui est le directeur de l'université",
+       "Où est le bureau du directeur",
+       "directeur",
+       "nom du directeur"
+    ],
+    "responses": [
+       "XYZ est le directeur de l'université et si vous avez besoin d'aide, appelez d'abord le chef de département de votre branche. C'est plus approprié."
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "CollegePrincipal",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "sem",
+    "text": [
+       "dates d'examen",
+       "calendrier des examens",
+       "Quand sont les examens de semestre",
+       "Calendrier des examens de semestre",
+       "sem",
+       "semestre",
+       "examen",
+       "quand est l'examen",
+       "calendrier des examens",
+       "dates d'examen",
+       "quand est le semestre"
+    ],
+    "responses": [
+       "Voici le calendrier académique <a target=\"_blank\" href=\"VOTRE CALENDRIER ACADÉMIQUE\">site web</a>"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "AcademicCalendar",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "admission",
+    "text": [
+       "Quel est le processus d'admission",
+       "Quel est le processus d'admission",
+       "Comment s'inscrire dans votre université",
+       "Quel est le processus d'admission",
+       "admission",
+       "processus d'admission"
+    ],
+    "responses": [
+       "Les candidatures peuvent également être soumises en ligne via le <a target=\"_blank\" href=\"LIEN DU DOCUMENT D'ADMISSION\">site web</a> de l'université."
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "ProcessOfAdmission",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "scholarship",
+    "text": [
+       "bourse",
+       "Y a-t-il des bourses disponibles",
+       "bourse en ingénierie",
+       "bourse en IT",
+       "bourse en CE",
+       "bourse en mécanique",
+       "bourse en génie civil",
+       "bourse en génie chimique",
+       "bourse pour IA/ML",
+       "bourses disponibles",
+       "bourse pour génie informatique",
+       "bourse pour génie IT",
+       "bourse pour génie mécanique",
+       "bourse pour génie civil",
+       "bourse pour génie chimique",
+       "liste des bourses",
+       "bourse en informatique",
+       "bourse en IT",
+       "bourse en mécanique",
+       "bourse en génie civil",
+       "bourse en génie chimique",
+       "bourse en automobile",
+       "bourse pour la première année",
+       "bourse pour la deuxième année",
+       "bourse pour la troisième année",
+       "bourse pour la quatrième année"
+    ],
+    "responses": [
+       "De nombreuses bourses gouvernementales sont soutenues par notre université. Pour plus de détails et mises à jour, visitez <a target=\"_blank\" href=\"(LIEN DES DÉTAILS DES BOURSES)\">ici</a>"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "ScholarshipCriteria",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "facilities",
+    "text": [
+       "Quelles sont les installations de l'université",
+       "Installations de l'université",
+       "Quelles sont les installations de l'université",
+       "installations",
+       "installations fournies"
+    ],
+    "responses": [
+       "Le département d'ingénierie de notre université propose des laboratoires entièrement climatisés avec connexion internet, des salles de classe intelligentes, un auditorium, une bibliothèque, une cantine."
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "Facilities",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "college intake",
+    "text": [
+       "nombre maximum d'étudiants",
+       "nombre de places par branche",
+       "nombre de places dans chaque branche",
+       "nombre maximum de places",
+       "nombre maximum d'étudiants admis",
+       "Quel est le nombre d'admissions de l'université",
+       "combien d'étudiants sont admis dans chaque branche",
+       "attribution des places",
+       "places"
+    ],
+    "responses": [
+       "Pour IT, Informatique et EXTC, 60 par branche et le nombre de places peut varier selon les départements."
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "Intake",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "uniform",
+    "text": [
+       "code vestimentaire de l'université",
+       "code vestimentaire de l'université",
+       "Quel est l'uniforme",
+       "Pouvons-nous porter des vêtements décontractés",
+       "L'université a-t-elle un uniforme",
+       "Y a-t-il un uniforme",
+       "uniforme",
+       "Qu'en est-il de l'uniforme",
+       "Devons-nous porter un uniforme"
+    ],
+    "responses": [
+       "ENTREZ VOTRE PROPRE CIRCULAIRE SUR L'UNIFORME UNIVERSITAIRE"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "UniformCollegeDressCode",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "committee",
+    "text": [
+       "Quels sont les différents comités de l'université",
+       "différents comités de l'université",
+       "Y a-t-il des comités à l'université",
+       "Donnez-moi les détails des comités",
+       "comité",
+       "combien de comités y a-t-il à l'université"
+    ],
+    "responses": [
+       "Pour les différents comités de l'université, contactez ce numéro : AJOUTEZ UN NUMÉRO"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "Committee",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "random",
+    "text": [
+       "Je t'aime",
+       "Veux-tu m'épouser",
+       "M'aimes-tu"
+    ],
+    "responses": [
+       "Je ne suis pas programmé pour cela, posez une question appropriée"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "Inappropriate",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "swear",
+    "text": [
+       "merde",
+       "salope",
+       "tais-toi",
+       "enfer",
+       "stupide",
+       "idiot",
+       "imbécile",
+       "trou du cul",
+       "connard"
+    ],
+    "responses": [
+       "veuillez utiliser un langage approprié",
+       "Maintenir la décence serait apprécié"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "InappropriateSwearWords",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "vacation",
+    "text": [
+       "vacances",
+       "Quand commence le semestre",
+       "Quand se termine le semestre",
+       "Quand sont les vacances",
+       "liste des vacances",
+       "Vacances cette année",
+       "liste des vacances",
+       "à propos des vacances",
+       "à propos des vacances",
+       "Quand sont les vacances",
+       "Quand sont les vacances",
+       "Combien de temps durent les vacances"
+    ],
+    "responses": [
+       "Le calendrier académique vous est remis par vos coordinateurs de classe après votre inscription."
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "AcademicCalendar",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "sports",
+    "text": [
+       "sports et jeux",
+       "donnez des détails sur les sports",
+       "infrastructure sportive",
+       "installations sportives",
+       "informations sur les sports",
+       "Activités sportives",
+       "veuillez fournir des informations sur les sports et jeux"
+    ],
+    "responses": [
+       "Notre université encourage le développement global des étudiants et propose donc des installations sportives sur le campus. Pour plus de détails, visitez<a target=\"_blank\" href=/\"(LIEN SI DISPONIBLE)\">ici</a>"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "Sports",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "salutaion",
+    "text": [
+       "ok",
+       "okie",
+       "bon travail",
+       "bien joué",
+       "bon travail",
+       "merci pour l'aide",
+       "Merci",
+       "c'est bon",
+       "Merci",
+       "Bon travail",
+       "k",
+       "ok",
+       "d'accord"
+    ],
+    "responses": [
+       "Je suis content de vous avoir aidé",
+       "de rien, puis-je vous aider avec autre chose ?"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "Salutation",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "task",
+    "text": [
+       "Que peux-tu faire",
+       "Quelles sont les choses que tu peux faire",
+       "choses que tu peux faire",
+       "Que peux-tu faire pour moi",
+       "Comment peux-tu m'aider",
+       "Pourquoi devrais-je t'utiliser"
+    ],
+    "responses": [
+       "Je peux répondre à des questions de niveau bas à intermédiaire concernant l'université",
+       "Vous pouvez me poser des questions sur l'université et j'essaierai d'y répondre"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "Task",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "ragging",
+    "text": [
+       "harcèlement",
+       "Le harcèlement est-il pratiqué à l'université",
+       "L'université a-t-elle des mesures contre le harcèlement",
+       "Y a-t-il des cas de harcèlement",
+       "Le harcèlement est-il pratiqué ici",
+       "harcèlement contre",
+       "mesures contre le harcèlement",
+       "harcèlement des juniors",
+       "historique du harcèlement",
+       "incidents de harcèlement"
+    ],
+    "responses": [
+       "Nous sommes fiers de vous dire que notre université offre un environnement sans harcèlement et nous avons des règles strictes contre cela."
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "Ragging",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ },
+  {
+    "intent": "hod",
+    "text": [
+       "chef de département",
+       "nom du chef de département",
+       "Qui est le chef de département"
+    ],
+    "responses": [
+       "Les chefs de département diffèrent selon les branches, soyez plus précis comme : (chef de département IT)"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "HODName",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+   },
+   {
+    "intent": "Mess Timetable",
+    "text": [
+       "Emploi du temps de la cantine",
+       "Quel est l'emploi du temps de la cantine",
+       "Emploi du temps des bus",
+       "emploi du temps",
+       "Quel est l'emploi du temps",
+       "Quel est l'emploi du temps des bus",
+       "Calendrier académique"
+    ],
+    "responses": [
+       "Lien de l'emploi du temps, visitez <a target=\"_blank\" href=\"https://lightningmcqueen-95.github.io/collage/index.html\"> ici</a>"
+    ],
+    "extension":  {
+        "function": "",
+        "entities": false,
+        "responses": []
+    },
+    "context":  {
+        "in": "",
+        "out": "MessQueries",
+        "clear": true
+    },
+    "entityType": "NA",
+    "entities": []
+ }
+ ]
+}
