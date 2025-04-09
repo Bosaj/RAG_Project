@@ -1,3 +1,3 @@
 #utilisant ce fichier pour la simplifications des importations
-from .data_contoler import datacontroler
+from .DataController import DataController
 from .ProjectController import ProjectController
