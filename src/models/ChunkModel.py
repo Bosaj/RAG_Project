@@ -1,5 +1,4 @@
-from .BaseDataModel import BaseDataModel
-from .db_schemes import DataChunk
+"""from .BaseDataModel import BaseDataModel
 from .enums.DataBaseEnum import DataBaseEnum
 from bson.objectid import ObjectId
 from pymongo import InsertOne
@@ -46,6 +45,6 @@ class ChunkModel(BaseDataModel):
 
         return result.deleted_count
     
-    
+    """
 
     
