@@ -26,7 +26,7 @@ $ pip install fastapi uvicorn
 ```bash
 $ uvicorn main:app --reload
 ```
-
+    
 ### Install the required packages
 
 ```bash

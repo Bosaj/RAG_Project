@@ -1,10 +1,7 @@
-from fastapi import FastAPI
-from routes import base,data
+from fastapi import FastAPI, Request
+from routes import base, data
 from motor.motor_asyncio import AsyncIOMotorClient
 from helpers.config import get_settings
-import logging
-logging.basicConfig(level=logging.DEBUG)
-
 
 app = FastAPI()
 
@@ -12,7 +9,8 @@ app = FastAPI()
 async def startup_db_client():
     settings = get_settings()
     app.mongo_conn = AsyncIOMotorClient(settings.MONGODB_URL)
-    app.db_client = app.mongo_conn[settings.MONGODB_DATABASE]  
+    app.db_client = app.mongo_conn[settings.MONGODB_DATABASE]
+    print(f"Connected to MongoDB at {settings.MONGODB_URL}")
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
