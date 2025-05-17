@@ -2,6 +2,8 @@ from .LLMEnums import LLMEnums
 from .providers.OpenAIProvider import OpenAIProvider
 from .providers.CoHereProvider import CoHereProvider
 from .providers.GeminiProvider import GeminiProvider
+from .providers.LocalEmbeddingProvider import LocalEmbeddingProvider
+
 
 class LLMProviderFactory:
     def __init__(self, config: dict):
@@ -32,5 +34,7 @@ class LLMProviderFactory:
                 default_generation_max_output_tokens=self.config.GENERATION_DAFAULT_MAX_TOKENS,
                 default_generation_temperature=self.config.GENERATION_DAFAULT_TEMPERATURE
             )
+        if provider == "LOCAL":
+            return LocalEmbeddingProvider()
 
         return None
