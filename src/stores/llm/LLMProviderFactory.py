@@ -3,6 +3,7 @@ from .providers.OpenAIProvider import OpenAIProvider
 from .providers.CoHereProvider import CoHereProvider
 from .providers.GeminiProvider import GeminiProvider
 from .providers.LocalEmbeddingProvider import LocalEmbeddingProvider
+from .providers.OllamaProvider import OllamaProvider
 
 
 class LLMProviderFactory:
@@ -36,5 +37,7 @@ class LLMProviderFactory:
             )
         if provider == "LOCAL":
             return LocalEmbeddingProvider()
+        if provider == "OLLAMA":
+          return OllamaProvider()
 
         return None
