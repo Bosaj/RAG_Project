@@ -34,6 +34,24 @@ ollama serve
 
 The required model and host settings still need to be configured in `src/.env`. Refer to Ollama’s [API documentation](https://github.com/ollama/ollama/blob/main/docs/api.md) for additional server options.
 
+## Start MongoDB with Docker Compose
+
+The repository includes a Compose file for the MongoDB service used by the application. From the repository root, copy the Docker environment template and set non-empty local development credentials before starting the service:
+
+```bash
+cp docker/.env.example docker/.env
+# Edit docker/.env and set MONGO_INITDB_ROOT_USERNAME and MONGO_INITDB_ROOT_PASSWORD.
+docker compose --env-file docker/.env -f docker/docker.compose.yml up -d mongodb
+```
+
+The Compose file publishes MongoDB on host port `27007`. Configure `MONGODB_URL` in `src/.env` to match the credentials and host port you use locally. Do not commit `docker/.env` or reuse development credentials in production.
+
+To stop the local database while preserving its named volume:
+
+```bash
+docker compose --env-file docker/.env -f docker/docker.compose.yml down
+```
+
 ## Run the FastAPI server
 
 From the repository root:
