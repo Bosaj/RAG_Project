@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a reproducible problem in the RAG service.
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not include API keys, database credentials, private documents, or other sensitive data. For security vulnerabilities, follow SECURITY.md instead.
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect the service to do?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead? Include a sanitized error message if available.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest set of steps or request payloads that reproduces the problem.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Include Python version, operating system, and relevant backend versions.
+    validations:
+      required: true
