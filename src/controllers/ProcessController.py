@@ -17,6 +17,9 @@ class ProcessController(BaseController):
         return os.path.splitext(file_id)[-1].lower()
 
     def get_file_path(self, file_id: str):
+        if not file_id or not file_id.strip():
+            return None
+
         storage_root = os.path.abspath(self.project_path)
         file_path = os.path.abspath(os.path.join(storage_root, file_id))
 
@@ -28,7 +31,7 @@ class ProcessController(BaseController):
     def get_file_loader(self, file_id: str):
         file_path = self.get_file_path(file_id=file_id)
 
-        if file_path is None or not os.path.exists(file_path):
+        if file_path is None or not os.path.isfile(file_path):
             return None
 
         file_ext = self.get_file_extension(file_id=file_id)
