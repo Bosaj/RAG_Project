@@ -54,6 +54,11 @@ class ProcessController(BaseController):
 
     def process_file_content(self, file_content: list, file_id: str,
                             chunk_size: int = 100, overlap_size: int = 20):
+        if chunk_size <= 0:
+            raise ValueError("chunk_size must be greater than zero")
+        if overlap_size < 0 or overlap_size >= chunk_size:
+            raise ValueError("overlap_size must be non-negative and smaller than chunk_size")
+
         from langchain_text_splitters import RecursiveCharacterTextSplitter
 
         text_splitter = RecursiveCharacterTextSplitter(
