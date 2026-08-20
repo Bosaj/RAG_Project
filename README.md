@@ -90,7 +90,9 @@ curl --fail-with-body --request POST \
   }'
 ```
 
-If `file_id` is omitted, the application attempts to process all files associated with the project. Set `do_reset` to `1` only when existing chunks for the project should be removed before processing.
+If `file_id` is omitted, the application attempts to process all files associated with the project. Set `do_reset` to `1` only when existing chunks for the project should be removed before processing. The API validates that `chunk_size` is positive, `overlap_size` is non-negative and smaller than `chunk_size`, and `do_reset` is either `0` or `1`.
+
+Search requests require non-empty text and accept a result `limit` from `1` through `100`.
 
 ### 3. Index the processed chunks
 
