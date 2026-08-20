@@ -1,6 +1,7 @@
 from fastapi import FastAPI, APIRouter, status, Request
 from fastapi.responses import JSONResponse
 from routes.schemes.nlp import PushRequest, SearchRequest
+from helpers.indexing import reset_requested_for_page
 from models.ProjectModel import ProjectModel
 from models.ChunkModel import ChunkModel
 from controllers import NLPController
@@ -65,7 +66,10 @@ async def index_project(request: Request, project_id: str, push_request: PushReq
         is_inserted = nlp_controller.index_into_vector_db(
             project=project,
             chunks=page_chunks,
-            do_reset=push_request.do_reset,
+            do_reset=reset_requested_for_page(
+                reset_requested=push_request.do_reset,
+                page_no=page_no,
+            ),
             chunks_ids=chunks_ids
         )
 
