@@ -50,6 +50,14 @@ The base endpoint is:
 GET http://localhost:5000/api/v1/
 ```
 
+A lightweight liveness endpoint is available for container or platform probes:
+
+```bash
+curl --fail-with-body http://localhost:5000/api/v1/health
+```
+
+It returns `{"status": "ok"}` when the FastAPI process is responding. It does not claim that MongoDB, the vector database, or external model providers are healthy; those dependencies are initialized separately during application startup.
+
 FastAPI’s interactive documentation is available at [http://localhost:5000/docs](http://localhost:5000/docs) while the server is running.
 
 ## API workflow

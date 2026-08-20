@@ -1,7 +1,9 @@
+import asyncio
 import unittest
 
 from pydantic import ValidationError
 
+from routes.base import health_check
 from routes.schemes.data import ProcessRequest
 from routes.schemes.nlp import PushRequest, SearchRequest
 
@@ -38,6 +40,9 @@ class RequestSchemaTests(unittest.TestCase):
 
         with self.assertRaises(ValidationError):
             SearchRequest()
+
+    def test_health_check_returns_liveness_response(self):
+        self.assertEqual(asyncio.run(health_check()), {"status": "ok"})
 
 
 if __name__ == "__main__":

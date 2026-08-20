@@ -17,3 +17,10 @@ async def welcome(app_settings: Settings = Depends(get_settings)):
         "app_name": app_name,
         "app_version": app_version,
     }
+
+
+@base_router.get("/health")
+async def health_check():
+    """Return a lightweight liveness response for deployment probes."""
+
+    return {"status": "ok"}
