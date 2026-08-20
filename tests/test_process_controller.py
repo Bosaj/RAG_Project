@@ -30,6 +30,16 @@ class ProcessFilePathTests(unittest.TestCase):
     def test_missing_file_returns_no_loader(self):
         self.assertIsNone(self.controller.get_file_loader("missing.txt"))
 
+    def test_empty_file_id_returns_no_path_or_loader(self):
+        self.assertIsNone(self.controller.get_file_path("   "))
+        self.assertIsNone(self.controller.get_file_loader("   "))
+
+    def test_directory_returns_no_loader(self):
+        directory = Path(self.temp_dir.name) / "folder.txt"
+        directory.mkdir()
+
+        self.assertIsNone(self.controller.get_file_loader("folder.txt"))
+
     def test_rejects_non_positive_chunk_size(self):
         with self.assertRaisesRegex(ValueError, "chunk_size"):
             self.controller.process_file_content([], "document.txt", chunk_size=0)
