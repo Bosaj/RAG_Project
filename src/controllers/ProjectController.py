@@ -9,13 +9,15 @@ class ProjectController(BaseController):
         super().__init__()
 
     def get_project_path(self, project_id: str):
-        project_dir = os.path.join(
-            self.files_dir,
-            project_id
-        )
+        if not project_id or not project_id.strip():
+            raise ValueError("project_id must not be empty")
 
-        if not os.path.exists(project_dir):
-            os.makedirs(project_dir)
+        storage_root = os.path.abspath(self.files_dir)
+        project_dir = os.path.abspath(os.path.join(storage_root, project_id))
 
+        if os.path.commonpath([storage_root, project_dir]) != storage_root:
+            raise ValueError("project_id must stay within the storage directory")
+
+        os.makedirs(project_dir, exist_ok=True)
         return project_dir
 
