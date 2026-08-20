@@ -1,10 +1,9 @@
 from .BaseController import BaseController
 from .ProjectController import ProjectController
 import os
-from langchain_community.document_loaders import TextLoader
-from langchain_community.document_loaders import PyMuPDFLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+
 from models import ProcessingEnum
+
 
 class ProcessController(BaseController):
 
@@ -15,29 +14,38 @@ class ProcessController(BaseController):
         self.project_path = ProjectController().get_project_path(project_id=project_id)
 
     def get_file_extension(self, file_id: str):
-        return os.path.splitext(file_id)[-1]
+        return os.path.splitext(file_id)[-1].lower()
 
-    def get_file_loader(self, file_id: str):
+    def get_file_path(self, file_id: str):
+        storage_root = os.path.abspath(self.project_path)
+        file_path = os.path.abspath(os.path.join(storage_root, file_id))
 
-        file_ext = self.get_file_extension(file_id=file_id)
-        file_path = os.path.join(
-            self.project_path,
-            file_id
-        )
-
-        if not os.path.exists(file_path):
+        if os.path.commonpath([storage_root, file_path]) != storage_root:
             return None
 
+        return file_path
+
+    def get_file_loader(self, file_id: str):
+        file_path = self.get_file_path(file_id=file_id)
+
+        if file_path is None or not os.path.exists(file_path):
+            return None
+
+        file_ext = self.get_file_extension(file_id=file_id)
+
         if file_ext == ProcessingEnum.TXT.value:
+            from langchain_community.document_loaders import TextLoader
+
             return TextLoader(file_path, encoding="utf-8")
 
         if file_ext == ProcessingEnum.PDF.value:
+            from langchain_community.document_loaders import PyMuPDFLoader
+
             return PyMuPDFLoader(file_path)
-        
+
         return None
 
     def get_file_content(self, file_id: str):
-
         loader = self.get_file_loader(file_id=file_id)
         if loader:
             return loader.load()
@@ -45,7 +53,8 @@ class ProcessController(BaseController):
         return None
 
     def process_file_content(self, file_content: list, file_id: str,
-                            chunk_size: int=100, overlap_size: int=20):
+                            chunk_size: int = 100, overlap_size: int = 20):
+        from langchain_text_splitters import RecursiveCharacterTextSplitter
 
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=chunk_size,
@@ -69,7 +78,3 @@ class ProcessController(BaseController):
         )
 
         return chunks
-
-
-    
-
