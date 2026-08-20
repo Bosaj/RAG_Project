@@ -21,6 +21,14 @@ class DataController(BaseController):
 
         return True, ResponseSignal.FILE_VALIDATED_SUCCESS.value
 
+    def remove_file(self, file_path: str):
+        """Remove a partially written upload if it exists."""
+
+        try:
+            os.remove(file_path)
+        except FileNotFoundError:
+            pass
+
     def generate_unique_filepath(self, orig_file_name: str, project_id: str):
 
         random_key = self.generate_random_string()

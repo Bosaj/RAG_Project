@@ -46,7 +46,6 @@ async def upload_data(request: Request, project_id: str, file: UploadFile,
             }
         )
 
-    project_dir_path = ProjectController().get_project_path(project_id=project_id)
     file_path, file_id = data_controller.generate_unique_filepath(
         orig_file_name=file.filename,
         project_id=project_id
@@ -58,7 +57,8 @@ async def upload_data(request: Request, project_id: str, file: UploadFile,
                 await f.write(chunk)
     except Exception as e:
 
-        logger.error(f"Error while uploading file: {e}")
+        data_controller.remove_file(file_path=file_path)
+        logger.exception(f"Error while uploading file: {e}")
 
         return JSONResponse(
             status_code=status.HTTP_400_BAD_REQUEST,
