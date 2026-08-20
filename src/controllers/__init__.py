@@ -1,5 +1,21 @@
-#utilisant ce fichier pour la simplifications des importations
 from .DataController import DataController
 from .ProjectController import ProjectController
-from .ProcessController import ProcessController
-from .NLPController import NLPController
+
+__all__ = [
+    "DataController",
+    "NLPController",
+    "ProcessController",
+    "ProjectController",
+]
+
+
+def __getattr__(name):
+    if name == "NLPController":
+        from .NLPController import NLPController
+
+        return NLPController
+    if name == "ProcessController":
+        from .ProcessController import ProcessController
+
+        return ProcessController
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
