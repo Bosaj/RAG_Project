@@ -20,8 +20,8 @@ class ProcessController(BaseController):
         if not file_id or not file_id.strip():
             return None
 
-        storage_root = os.path.abspath(self.project_path)
-        file_path = os.path.abspath(os.path.join(storage_root, file_id))
+        storage_root = os.path.realpath(self.project_path)
+        file_path = os.path.realpath(os.path.join(storage_root, file_id))
 
         if os.path.commonpath([storage_root, file_path]) != storage_root:
             return None
