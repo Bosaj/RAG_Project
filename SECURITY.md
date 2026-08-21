@@ -1,4 +1,4 @@
-﻿# Security Policy
+# Security Policy
 
 ## 🛡️ Supported Versions
 
@@ -6,8 +6,8 @@ We actively maintain and release security updates for the following versions:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.x  | :white_check_mark: |
-| < 1.0 | :x:                |
+| `v1.x`  | :white_check_mark: |
+| `< 1.0` | :x:                |
 
 ---
 
@@ -28,6 +28,6 @@ We will acknowledge receipt within 48 hours and work with you to remediate and p
 
 ## 🔑 Credential & Secret Hygiene
 
-- Never commit .env files, API keys, or database credentials into Git.
-- Always use .env.exemple as the template for local configurations.
+- Never commit `.env` files, API keys, or database credentials into Git.
+- Always use `.env.exemple` as the template for local configurations.
 - Ensure automated secret scanning remains enabled in GitHub settings.
