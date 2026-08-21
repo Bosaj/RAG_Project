@@ -1,4 +1,4 @@
-﻿# 🧠 RAG Project — Production-Ready Retrieval-Augmented Generation Engine
+# 🧠 RAG Project — Production-Ready Retrieval-Augmented Generation Engine
 
 [![CI Tests](https://github.com/Bosaj/RAG_Project/actions/workflows/ci.yml/badge.svg)](https://github.com/Bosaj/RAG_Project/actions)
 [![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/)
@@ -13,7 +13,7 @@ A high-performance, modular **Retrieval-Augmented Generation (RAG)** backend eng
 
 ## 🏗️ Architecture & Pipeline
 
-`mermaid
+```mermaid
 graph TD
     subgraph "1. Ingestion Layer"
         DOC["📄 Upload Documents (PDF / TXT)"] --> VAL["🛡️ Path & Size Validation"]
@@ -34,7 +34,7 @@ graph TD
         PROMPT --> LLM["🤖 LLM Provider (OpenAI / Gemini / Cohere / Ollama)"]
         LLM --> RESP["💬 Context-Grounded Answer"]
     end
-`
+```
 
 ---
 
@@ -66,27 +66,27 @@ graph TD
 ## 🚀 Quick Start
 
 ### 1. Clone the Repository
-\\\ash
+```bash
 git clone https://github.com/Bosaj/RAG_Project.git
 cd RAG_Project
-\\\
+```
 
 ### 2. Configure Environment Variables
-\\\ash
+```bash
 cd src
 cp .env.exemple .env
 # Edit .env with your MongoDB URL, Vector DB path, and chosen LLM API keys
-\\\
+```
 
 ### 3. Start MongoDB with Docker Compose
-\\\ash
+```bash
 # From the repository root:
 cp docker/.env.example docker/.env
 docker compose --env-file docker/.env -f docker/docker.compose.yml up -d mongodb
-\\\
+```
 
 ### 4. Run the FastAPI Application
-\\\ash
+```bash
 cd src
 python3 -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
@@ -95,7 +95,7 @@ pip install -r requirements.txt
 
 # Start FastAPI development server
 uvicorn main:app --reload --host 0.0.0.0 --port 5000
-\\\
+```
 
 Interactive OpenAPI Swagger docs will be available at: **[http://localhost:5000/docs](http://localhost:5000/docs)**
 
@@ -104,19 +104,19 @@ Interactive OpenAPI Swagger docs will be available at: **[http://localhost:5000/
 ## 📡 REST API Reference
 
 ### Health & Liveness
-\\\ash
+```bash
 curl -X GET http://localhost:5000/api/v1/health
 # Response: {"status": "ok"}
-\\\
+```
 
 ### 1. Upload a Document
-\\\ash
+```bash
 curl -X POST 'http://localhost:5000/api/v1/data/upload/project_1' \
   -F 'file=@sample_document.pdf'
-\\\
+```
 
 ### 2. Process & Index Document Chunks
-\\\ash
+```bash
 curl -X POST 'http://localhost:5000/api/v1/process/project_1' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -125,27 +125,27 @@ curl -X POST 'http://localhost:5000/api/v1/process/project_1' \
     "overlap_size": 40,
     "do_reset": false
   }'
-\\\
+```
 
 ### 3. Search Relevant Context
-\\\ash
+```bash
 curl -X POST 'http://localhost:5000/api/v1/nlp/search/project_1' \
   -H 'Content-Type: application/json' \
   -d '{
     "query": "What are the key findings of the report?",
     "limit": 5
   }'
-\\\
+```
 
 ### 4. Query RAG Answer Generation
-\\\ash
+```bash
 curl -X POST 'http://localhost:5000/api/v1/nlp/answer/project_1' \
   -H 'Content-Type: application/json' \
   -d '{
     "query": "Summarize the key conclusions from the uploaded document.",
     "language": "en"
   }'
-\\\
+```
 
 ---
 
@@ -153,10 +153,10 @@ curl -X POST 'http://localhost:5000/api/v1/nlp/answer/project_1' \
 
 Run the test suite across all controllers, schema validators, and provider factories:
 
-\\\ash
+```bash
 # Run pytest with src added to PYTHONPATH
 PYTHONPATH=src pytest -v
-\\\
+```
 
 ---
 
