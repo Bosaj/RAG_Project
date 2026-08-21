@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-project"
+version = "1.0.0"
+description = "Production-Ready Retrieval-Augmented Generation REST API Engine"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Oussama EL HADJI (Bosaj)", email = "oussousselhadji@gmail.com" }
+]
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "pydantic>=2.8.0",
+    "pydantic-settings>=2.8.0",
+    "motor>=3.5.0",
+    "qdrant-client>=1.9.0",
+    "pymupdf>=1.24.0",
+    "langchain>=0.2.0",
+    "langchain-community>=0.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=5.0.0",
+    "ruff>=0.5.0",
+    "black>=24.0.0",
+    "isort>=5.13.0",
+    "mypy>=1.10.0",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --verbose"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
