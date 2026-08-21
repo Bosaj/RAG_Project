@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 <!-- Provide a brief description of the changes introduced by this pull request. -->
 
 ## Type of Change
@@ -12,5 +12,5 @@
 - [ ] My code follows the code style and guidelines of this project.
 - [ ] I have performed a self-review of my code.
 - [ ] I have added tests that prove my fix is effective or that my feature works.
-- [ ] All existing and new unit tests pass cleanly (pytest).
+- [ ] All existing and new unit tests pass cleanly (`pytest`).
 - [ ] No secrets, keys, or credentials are included in this PR.
