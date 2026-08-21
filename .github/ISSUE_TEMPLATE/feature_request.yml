@@ -1,0 +1,17 @@
+﻿name: ✨ Feature Request
+description: Suggest an idea or enhancement for RAG Project
+title: "[FEAT]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: feature
+    attributes:
+      label: Proposed Feature
+      description: A clear description of what feature or enhancement you would like.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Problem Context / Motivation
+      description: Why is this feature needed and how does it improve the RAG workflow?

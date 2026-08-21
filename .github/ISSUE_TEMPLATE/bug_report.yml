@@ -1,38 +1,32 @@
-name: Bug report
-description: Report a reproducible problem in the RAG service.
-title: "bug: "
-labels:
-  - bug
+﻿name: 🐛 Bug Report
+description: Create a report to help us improve
+title: "[BUG]: "
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
-      value: |
-        Please do not include API keys, database credentials, private documents, or other sensitive data. For security vulnerabilities, follow SECURITY.md instead.
+      value: Thanks for taking the time to fill out this bug report!
   - type: textarea
-    id: expected
+    id: description
     attributes:
-      label: Expected behavior
-      description: What did you expect the service to do?
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
     validations:
       required: true
   - type: textarea
-    id: actual
+    id: reproduction
     attributes:
-      label: Actual behavior
-      description: What happened instead? Include a sanitized error message if available.
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Start server with '...'
+        2. Send POST request to '...'
+        3. See error
     validations:
       required: true
   - type: textarea
-    id: reproduce
-    attributes:
-      label: Reproduction steps
-      description: Provide the smallest set of steps or request payloads that reproduces the problem.
-    validations:
-      required: true
-  - type: input
     id: environment
     attributes:
       label: Environment
-      description: Include Python version, operating system, and relevant backend versions.
-    validations:
-      required: true
+      description: Python version, OS, database versions.
+      placeholder: "Python 3.11, Ubuntu 22.04, MongoDB 6.0"

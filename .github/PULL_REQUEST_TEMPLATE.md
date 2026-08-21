@@ -1,16 +1,16 @@
-## Summary
+﻿## Description
+<!-- Provide a brief description of the changes introduced by this pull request. -->
 
-Describe the problem this pull request solves and the approach taken.
+## Type of Change
+- [ ] 🐛 Bug fix (non-breaking change fixing an issue)
+- [ ] ✨ New feature (non-breaking change adding functionality)
+- [ ] ♻️ Refactoring / Code cleanup
+- [ ] 📝 Documentation update
+- [ ] ⚙️ CI/CD / Infrastructure update
 
-## Verification
-
-- [ ] I ran the Python compilation check.
-- [ ] I ran the unit tests.
-- [ ] I added or updated tests for behavior that changed.
-- [ ] I updated the README when setup or API behavior changed.
-
-## Safety checklist
-
-- [ ] This pull request does not include API keys, credentials, private documents, or generated secrets.
-- [ ] The change is focused and does not include unrelated formatting or generated files.
-- [ ] Any user-facing error messages and request examples are sanitized.
+## Checklist
+- [ ] My code follows the code style and guidelines of this project.
+- [ ] I have performed a self-review of my code.
+- [ ] I have added tests that prove my fix is effective or that my feature works.
+- [ ] All existing and new unit tests pass cleanly (pytest).
+- [ ] No secrets, keys, or credentials are included in this PR.
