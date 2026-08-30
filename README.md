@@ -225,3 +225,13 @@ Distributed under the **Apache License 2.0** — see [LICENSE](LICENSE).
 ## Author
 
 **Oussama EL HADJI** ([@Bosaj](https://github.com/Bosaj)) — oussousselhadji@gmail.com
+
+
+## 📊 Monitoring, Controlling, Evaluation & QA
+
+This project includes a standardized 4-Pillar Observability and QA framework:
+- **Logs & Prometheus/Grafana Monitoring**: Configured in `monitoring/` with Prometheus scraper configs and Grafana dashboards.
+- **Health Controlling & Evaluation**: Liveness/readiness controllers in `monitoring/health.py` and evaluation harness in `scripts/eval_harness.py`.
+- **QA & Testing**: Automated Pytest/Vitest integration and CI workflows via `.github/workflows/ci_qa_monitoring.yml`.
+
+For complete instructions, architecture details, and commands, see [docs/MONITORING_AND_QA.md](file:///C:\Users\ROG FLOW\Desktop\Projects\Github_Projects\RAG_Project\docs\MONITORING_AND_QA.md).
