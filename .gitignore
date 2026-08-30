@@ -174,3 +174,13 @@ __pycache__/
 .vscode/
 *.pyc
 *.log
+
+
+# Local Environment & Staging Security
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+.wiki-staging
+temp_*
