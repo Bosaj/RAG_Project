@@ -1,33 +1,18 @@
 # Security Policy
 
-## 🛡️ Supported Versions
+## Supported Versions
 
-We actively maintain and release security updates for the following versions:
+We actively maintain and provide security patches for the following versions:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| `v1.x`  | :white_check_mark: |
-| `< 1.0` | :x:                |
+| 1.x     | :white_check_mark: |
+| < 1.0   | :x:                |
 
----
+## Reporting a Vulnerability
 
-## 🚨 Reporting a Vulnerability
+If you discover a security vulnerability within this project, please follow these guidelines:
 
-The security of **RAG Project** is a top priority. If you discover a vulnerability or potential security risk:
-
-1. **Do NOT open a public issue** on GitHub.
-2. Report the vulnerability privately using **[GitHub Security Advisory](https://github.com/Bosaj/RAG_Project/security/advisories/new)** or by reaching out to the maintainer via the [Bosaj GitHub Profile](https://github.com/Bosaj).
-3. Provide a detailed summary including:
-   - Affected endpoints or files
-   - Step-by-step reproduction instructions
-   - Potential security impact
-
-We will acknowledge receipt within 48 hours and work with you to remediate and publish a patch.
-
----
-
-## 🔑 Credential & Secret Hygiene
-
-- Never commit `.env` files, API keys, or database credentials into Git.
-- Always use `.env.exemple` as the template for local configurations.
-- Ensure automated secret scanning remains enabled in GitHub settings.
+1. **Do not create a public issue.**
+2. Send an email directly to **oussousselhadji@gmail.com** with details about the vulnerability, including steps to reproduce and potential impact.
+3. You will receive an acknowledgment within 48 hours, followed by updates on the remediation timeline.
