@@ -15,8 +15,6 @@
 
 Modular RAG backend: upload documents, chunk and embed them, index into Qdrant, and answer questions grounded in the retrieved context.
 
-[![CI Tests](https://github.com/Bosaj/RAG_Project/actions/workflows/ci.yml/badge.svg)](https://github.com/Bosaj/RAG_Project/actions/workflows/ci.yml)
-[![Python checks](https://github.com/Bosaj/RAG_Project/actions/workflows/python-checks.yml/badge.svg)](https://github.com/Bosaj/RAG_Project/actions/workflows/python-checks.yml)
 [![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![Qdrant](https://img.shields.io/badge/Qdrant-Vector%20DB-red.svg?logo=qdrant&logoColor=white)](https://qdrant.tech/)
