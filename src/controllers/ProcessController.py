@@ -1,12 +1,12 @@
-from .BaseController import BaseController
-from .ProjectController import ProjectController
 import os
 
 from models import ProcessingEnum
 
+from .BaseController import BaseController
+from .ProjectController import ProjectController
+
 
 class ProcessController(BaseController):
-
     def __init__(self, project_id: str):
         super().__init__()
 
@@ -55,8 +55,7 @@ class ProcessController(BaseController):
 
         return None
 
-    def process_file_content(self, file_content: list, file_id: str,
-                            chunk_size: int = 100, overlap_size: int = 20):
+    def process_file_content(self, file_content: list, file_id: str, chunk_size: int = 100, overlap_size: int = 20):
         if chunk_size <= 0:
             raise ValueError("chunk_size must be greater than zero")
         if overlap_size < 0 or overlap_size >= chunk_size:
@@ -70,19 +69,10 @@ class ProcessController(BaseController):
             length_function=len,
         )
 
-        file_content_texts = [
-            rec.page_content
-            for rec in file_content
-        ]
+        file_content_texts = [rec.page_content for rec in file_content]
 
-        file_content_metadata = [
-            rec.metadata
-            for rec in file_content
-        ]
+        file_content_metadata = [rec.metadata for rec in file_content]
 
-        chunks = text_splitter.create_documents(
-            file_content_texts,
-            metadatas=file_content_metadata
-        )
+        chunks = text_splitter.create_documents(file_content_texts, metadatas=file_content_metadata)
 
         return chunks

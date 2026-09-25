@@ -29,9 +29,7 @@ class UploadFilenameTests(unittest.TestCase):
         self.assertEqual(self.controller.get_clean_file_name("   ...///"), "uploaded_file")
 
     def test_unknown_upload_size_is_allowed_for_streaming_input(self):
-        is_valid, _ = self.controller.validate_uploaded_file(
-            SimpleNamespace(content_type="text/plain", size=None)
-        )
+        is_valid, _ = self.controller.validate_uploaded_file(SimpleNamespace(content_type="text/plain", size=None))
 
         self.assertTrue(is_valid)
 

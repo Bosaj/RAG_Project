@@ -1,12 +1,14 @@
 from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import base, data, nlp
 from motor.motor_asyncio import AsyncIOMotorClient
+
 from helpers.config import get_settings
+from routes import base, data, nlp
 from stores.llm.LLMProviderFactory import LLMProviderFactory
-from stores.vectordb.VectorDBProviderFactory import VectorDBProviderFactory
 from stores.llm.templates.template_parser import TemplateParser
+from stores.vectordb.VectorDBProviderFactory import VectorDBProviderFactory
 
 
 @asynccontextmanager
@@ -30,9 +32,7 @@ async def lifespan(app: FastAPI):
     )
 
     # vector db client
-    app.vectordb_client = vectordb_provider_factory.create(
-        provider=settings.VECTOR_DB_BACKEND
-    )
+    app.vectordb_client = vectordb_provider_factory.create(provider=settings.VECTOR_DB_BACKEND)
     app.vectordb_client.connect()
 
     app.template_parser = TemplateParser(

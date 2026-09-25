@@ -1,14 +1,17 @@
 from enum import Enum
 
+
 class LLMEnums(Enum):
     OPENAI = "OPENAI"
     COHERE = "COHERE"
     GEMINI = "GEMINI"
 
+
 class OpenAIEnums(Enum):
     SYSTEM = "system"
     USER = "user"
     ASSISTANT = "assistant"
+
 
 class CoHereEnums(Enum):
     SYSTEM = "SYSTEM"

@@ -1,5 +1,7 @@
-from .VectorDBEnums import VectorDBEnums
 from controllers.BaseController import BaseController
+
+from .VectorDBEnums import VectorDBEnums
+
 
 class VectorDBProviderFactory:
     def __init__(self, config):
@@ -16,7 +18,7 @@ class VectorDBProviderFactory:
                 db_path=db_path,
                 distance_method=self.config.VECTOR_DB_DISTANCE_METHOD,
             )
-        
+
         if provider == VectorDBEnums.LANCEDB.value:
             from .providers.LanceDBProvider import LanceDBProvider
 
@@ -26,5 +28,5 @@ class VectorDBProviderFactory:
                 db_path=db_path,
                 distance_method=self.config.VECTOR_DB_DISTANCE_METHOD,
             )
-        
+
         raise ValueError(f"Unsupported vector database provider: {provider!r}")

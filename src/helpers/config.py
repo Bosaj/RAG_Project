@@ -1,7 +1,7 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-class Settings(BaseSettings):
 
+class Settings(BaseSettings):
     APP_NAME: str
     APP_VERSION: str
     OPENAI_API_KEY: str
@@ -16,7 +16,6 @@ class Settings(BaseSettings):
     GENERATION_BACKEND: str
     EMBEDDING_BACKEND: str
 
-    OPENAI_API_KEY: str = None
     OPENAI_BASE_URL: str = None
     COHERE_API_KEY: str = None
     GEMINI_API_KEY: str = None
@@ -28,8 +27,8 @@ class Settings(BaseSettings):
     GENERATION_DAFAULT_MAX_TOKENS: int = None
     GENERATION_DAFAULT_TEMPERATURE: float = None
 
-    VECTOR_DB_BACKEND : str
-    VECTOR_DB_PATH : str
+    VECTOR_DB_BACKEND: str
+    VECTOR_DB_PATH: str
     VECTOR_DB_DISTANCE_METHOD: str = None
 
     PRIMARY_LANG: str = "en"
@@ -37,6 +36,6 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
+
 def get_settings():
     return Settings()
-

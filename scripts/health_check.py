@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-import urllib.request
 import json
 import sys
+import urllib.request
 
-URL = 'http://localhost:5000/api/v1/health'
+URL = "http://localhost:5000/api/v1/health"
 
 try:
     with urllib.request.urlopen(URL, timeout=5) as response:

@@ -1,7 +1,7 @@
 from enum import Enum
 
-class ResponseSignal(Enum):
 
+class ResponseSignal(Enum):
     FILE_VALIDATED_SUCCESS = "file_validate_successfully"
     FILE_TYPE_NOT_SUPPORTED = "file_type_not_supported"
     FILE_SIZE_EXCEEDED = "file_size_exceeded"
@@ -19,4 +19,3 @@ class ResponseSignal(Enum):
     VECTORDB_SEARCH_SUCCESS = "vectordb_search_success"
     RAG_ANSWER_ERROR = "rag_answer_error"
     RAG_ANSWER_SUCCESS = "rag_answer_success"
-    

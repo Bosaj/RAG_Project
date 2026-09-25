@@ -1,13 +1,14 @@
-from ..VectorDBInterface import VectorDBInterface
-from ..VectorDBEnums import DistanceMethodEnums
-import logging
-from typing import List
-from models.db_schemes import RetrievedDocument
 import json
+import logging
 import uuid
 
-class LanceDBProvider(VectorDBInterface):
+from models.db_schemes import RetrievedDocument
 
+from ..VectorDBEnums import DistanceMethodEnums
+from ..VectorDBInterface import VectorDBInterface
+
+
+class LanceDBProvider(VectorDBInterface):
     def __init__(self, db_path: str, distance_method: str = "cosine"):
         self.db = None
         self.db_path = db_path
@@ -17,6 +18,7 @@ class LanceDBProvider(VectorDBInterface):
     def connect(self):
         try:
             import lancedb
+
             self.db = lancedb.connect(self.db_path)
             self.logger.info(f"Connected to LanceDB at {self.db_path}")
             return True
@@ -35,7 +37,7 @@ class LanceDBProvider(VectorDBInterface):
         except Exception:
             return False
 
-    def list_all_collections(self) -> List:
+    def list_all_collections(self) -> list:
         if self.db is None:
             return []
         try:
@@ -48,11 +50,7 @@ class LanceDBProvider(VectorDBInterface):
             return None
         try:
             table = self.db.open_table(collection_name)
-            return {
-                "name": collection_name,
-                "vectors_count": table.count_rows(),
-                "status": "ready"
-            }
+            return {"name": collection_name, "vectors_count": table.count_rows(), "status": "ready"}
         except Exception as e:
             self.logger.error(f"Failed to get collection info: {e}")
             return None
@@ -67,23 +65,24 @@ class LanceDBProvider(VectorDBInterface):
                 return False
         return False
 
-    def create_collection(self, collection_name: str, 
-                                embedding_size: int,
-                                do_reset: bool = False):
+    def create_collection(self, collection_name: str, embedding_size: int, do_reset: bool = False):
         try:
             import pyarrow as pa
+
             if do_reset and self.is_collection_existed(collection_name):
                 self.delete_collection(collection_name)
 
             if self.is_collection_existed(collection_name):
                 return True
 
-            schema = pa.schema([
-                pa.field("id", pa.string()),
-                pa.field("vector", pa.list_(pa.float32(), embedding_size)),
-                pa.field("text", pa.string()),
-                pa.field("metadata", pa.string())
-            ])
+            schema = pa.schema(
+                [
+                    pa.field("id", pa.string()),
+                    pa.field("vector", pa.list_(pa.float32(), embedding_size)),
+                    pa.field("text", pa.string()),
+                    pa.field("metadata", pa.string()),
+                ]
+            )
 
             self.db.create_table(collection_name, schema=schema)
             return True
@@ -91,9 +90,14 @@ class LanceDBProvider(VectorDBInterface):
             self.logger.error(f"Failed to create collection: {e}")
             return False
 
-    def insert_one(self, collection_name: str, text: str, vector: list,
-                         metadata: dict = None, 
-                         record_id: str = None):
+    def insert_one(
+        self,
+        collection_name: str,
+        text: str,
+        vector: list,
+        metadata: dict | None = None,
+        record_id: str | None = None,
+    ):
         if not record_id:
             record_id = str(uuid.uuid4())
 
@@ -102,12 +106,18 @@ class LanceDBProvider(VectorDBInterface):
             texts=[text],
             vectors=[vector],
             metadata=[metadata or {}],
-            record_ids=[record_id]
+            record_ids=[record_id],
         )
 
-    def insert_many(self, collection_name: str, texts: list, 
-                          vectors: list, metadata: list = None, 
-                          record_ids: list = None, batch_size: int = 50):
+    def insert_many(
+        self,
+        collection_name: str,
+        texts: list,
+        vectors: list,
+        metadata: list | None = None,
+        record_ids: list | None = None,
+        batch_size: int = 50,
+    ):
         if not self.is_collection_existed(collection_name):
             return False
 
@@ -121,12 +131,14 @@ class LanceDBProvider(VectorDBInterface):
             table = self.db.open_table(collection_name)
             data = []
             for i in range(len(texts)):
-                data.append({
-                    "id": record_ids[i],
-                    "vector": vectors[i],
-                    "text": texts[i],
-                    "metadata": json.dumps(metadata[i]) if metadata[i] else "{}"
-                })
+                data.append(
+                    {
+                        "id": record_ids[i],
+                        "vector": vectors[i],
+                        "text": texts[i],
+                        "metadata": json.dumps(metadata[i]) if metadata[i] else "{}",
+                    }
+                )
 
             table.add(data)
             return True
@@ -134,7 +146,7 @@ class LanceDBProvider(VectorDBInterface):
             self.logger.error(f"Failed to insert many: {e}")
             return False
 
-    def search_by_vector(self, collection_name: str, vector: list, limit: int) -> List[RetrievedDocument]:
+    def search_by_vector(self, collection_name: str, vector: list, limit: int) -> list[RetrievedDocument]:
         if not self.is_collection_existed(collection_name):
             return []
 
@@ -145,12 +157,7 @@ class LanceDBProvider(VectorDBInterface):
             retrieved_docs = []
             for res in results:
                 score = 1.0 - float(res.get("_distance", 0.0))
-                retrieved_docs.append(
-                    RetrievedDocument(
-                        text=res["text"],
-                        score=score
-                    )
-                )
+                retrieved_docs.append(RetrievedDocument(text=res["text"], score=score))
             return retrieved_docs
         except Exception as e:
             self.logger.error(f"Failed to search: {e}")
