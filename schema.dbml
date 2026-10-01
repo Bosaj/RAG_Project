@@ -1,0 +1,47 @@
+// DBML Schema for RAG Engine & Knowledge Base
+// Derived from Pydantic & Document Collection Schemas (MongoDB / NoSQL)
+
+Project rag_knowledge_engine {
+  database_type: 'Document / NoSQL'
+  Note: 'RAG Service & Knowledge Base Document Engine Schema'
+}
+
+Table projects {
+  _id varchar [pk, note: 'BSON ObjectId']
+  project_id varchar [not null, unique]
+  created_at timestamptz [default: `now()`]
+}
+
+Table assets {
+  _id varchar [pk, note: 'BSON ObjectId']
+  asset_project_id varchar [not null, note: 'References projects._id']
+  asset_type varchar [not null, note: 'pdf | text | audio | video | docx']
+  asset_name varchar [not null]
+  asset_size integer [default: 0]
+  asset_config jsonb
+  asset_pushed_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    asset_project_id
+    (asset_project_id, asset_name) [unique]
+  }
+}
+
+Table chunks {
+  _id varchar [pk, note: 'BSON ObjectId']
+  chunk_project_id varchar [not null, note: 'References projects._id']
+  chunk_asset_id varchar [not null, note: 'References assets._id']
+  chunk_text text [not null]
+  chunk_metadata jsonb
+  chunk_vector text [note: 'Dense embedding vector (e.g. 768 or 1536 dims)']
+
+  indexes {
+    chunk_project_id
+    chunk_asset_id
+  }
+}
+
+// Relationships
+Ref: assets.asset_project_id > projects._id
+Ref: chunks.chunk_project_id > projects._id
+Ref: chunks.chunk_asset_id > assets._id
