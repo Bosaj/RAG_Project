@@ -31,9 +31,15 @@ jobs:
 
       - name: Build Distribution Package
         run: |
-          python -m build --sdist --wheel --outdir dist/ || (mkdir -p dist && tar -czf dist/package.tar.gz --exclude='.git' --exclude='.venv' .)
+          mkdir -p build_pkg
+          tar -czf build_pkg/package.tar.gz --exclude='.git' --exclude='.venv' --exclude='dist' --exclude='build_pkg' .
+          mkdir -p dist
+          mv build_pkg/package.tar.gz dist/
+          python -m build --sdist --wheel --outdir dist/ || true
 
       - name: Generate Artifact Attestation
+        if: ${{ !github.event.repository.private }}
+        continue-on-error: true
         uses: actions/attest-build-provenance@v2
         with:
           subject-path: 'dist/*'
