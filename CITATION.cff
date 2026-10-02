@@ -3,8 +3,8 @@ message: "If you use this software, please cite it using the metadata from this 
 title: "Rag Project"
 abstract: "Modular Retrieval-Augmented Generation (RAG) Architecture with Vector Embeddings and Semantic Search."
 authors:
-  - family-names: "Oussous"
-    given-names: "El Hadji"
+  - family-names: "EL HADJI"
+    given-names: "Oussama"
     alias: "Bosaj"
     email: "oussousselhadji@gmail.com"
 repository-code: "https://github.com/Bosaj/RAG_Project"

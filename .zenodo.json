@@ -1,9 +1,9 @@
 {
   "title": "Rag Project: Modular Retrieval-Augmented Generation (RAG) Architecture with Vector Embeddings and Semantic Search.",
-  "description": "<p>Modular Retrieval-Augmented Generation (RAG) Architecture with Vector Embeddings and Semantic Search.</p><p>Authored and maintained by Bosaj (El Hadji Oussous).</p>",
+  "description": "<p>Modular Retrieval-Augmented Generation (RAG) Architecture with Vector Embeddings and Semantic Search.</p><p>Authored and maintained by Bosaj (Oussama EL HADJI).</p>",
   "creators": [
     {
-      "name": "Oussous, El Hadji",
+      "name": "EL HADJI, Oussama",
       "affiliation": "Software Engineer & AI Researcher",
       "orcid": ""
     }
