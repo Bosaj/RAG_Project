@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+title: "Rag Project"
+abstract: "Modular Retrieval-Augmented Generation (RAG) Architecture with Vector Embeddings and Semantic Search."
+authors:
+  - family-names: "Oussous"
+    given-names: "El Hadji"
+    alias: "Bosaj"
+    email: "oussousselhadji@gmail.com"
+repository-code: "https://github.com/Bosaj/RAG_Project"
+url: "https://github.com/Bosaj/RAG_Project"
+date-released: 2026-10-02
+license: "GPL-3.0-or-later"
+keywords:
+  - "ai"
+  - "software-engineering"
+  - "bosaj"
