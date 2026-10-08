@@ -1,0 +1,106 @@
+@prefix :       <http://www.example.org/library#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+# Ontologie
+:LibraryOntology a owl:Ontology ;
+    rdfs:label "Ontologie de bibliothèque simple" .
+
+# --- Classes ---
+:Document    a owl:Class .
+:Livre       a owl:Class ; rdfs:subClassOf :Document .
+:Article     a owl:Class ; rdfs:subClassOf :Document .
+:Auteur      a owl:Class .
+:Utilisateur a owl:Class .
+:Emprunt     a owl:Class .
+
+# --- Propriétés de données (DatatypeProperty) ---
+:aPourTitre          a owl:DatatypeProperty ;
+    rdfs:domain :Document ;
+    rdfs:range  xsd:string .
+
+:dateDePublication   a owl:DatatypeProperty ;
+    rdfs:domain :Document ;
+    rdfs:range  xsd:date .
+
+:isbn                a owl:DatatypeProperty ;
+    rdfs:domain :Livre ;
+    rdfs:range  xsd:string .
+
+:langue              a owl:DatatypeProperty ;
+    rdfs:domain :Document ;
+    rdfs:range  xsd:string .
+
+:dateDebutEmprunt    a owl:DatatypeProperty ;
+    rdfs:domain :Emprunt ;
+    rdfs:range  xsd:dateTime .
+
+:dateFinEmprunt      a owl:DatatypeProperty ;
+    rdfs:domain :Emprunt ;
+    rdfs:range  xsd:dateTime .
+
+# --- Propriétés d’objet (ObjectProperty) ---
+:aPourAuteur         a owl:ObjectProperty ;
+    rdfs:domain :Document ;
+    rdfs:range  :Auteur .
+
+:empruntePar         a owl:ObjectProperty ;
+    rdfs:domain :Emprunt ;
+    rdfs:range  :Utilisateur .
+
+:documentEmprunté    a owl:ObjectProperty ;
+    rdfs:domain :Emprunt ;
+    rdfs:range  :Document .
+
+# --- Contraintes simples ---
+# Un livre doit avoir au moins un auteur
+:Livre rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :aPourAuteur ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger
+] .
+
+# --- Individus (Instances) ---
+# Auteurs
+:auteur1 a :Auteur ;
+    rdfs:label "Antoine de Saint-Exupéry" .
+
+:auteur2 a :Auteur ;
+    rdfs:label "Jules Verne" .
+
+# Livres
+:livre1 a :Livre ;
+    :aPourTitre        "Le Petit Prince" ;
+    :dateDePublication "1943-04-06"^^xsd:date ;
+    :langue            "français" ;
+    :isbn              "978-0156012195" ;
+    :aPourAuteur       :auteur1 .
+
+:livre2 a :Livre ;
+    :aPourTitre        "Voyage au centre de la Terre" ;
+    :dateDePublication "1864-11-25"^^xsd:date ;
+    :langue            "français" ;
+    :isbn              "978-2070612094" ;
+    :aPourAuteur       :auteur2 .
+
+# Utilisateurs
+:utilisateur1 a :Utilisateur ;
+    rdfs:label "Fatima Zahra" .
+
+:utilisateur2 a :Utilisateur ;
+    rdfs:label "Omar El Idrissi" .
+
+# Emprunts
+:emprunt1 a :Emprunt ;
+    :empruntePar       :utilisateur1 ;
+    :documentEmprunté  :livre1 ;
+    :dateDebutEmprunt  "2025-05-25T10:00:00"^^xsd:dateTime ;
+    :dateFinEmprunt    "2025-06-05T10:00:00"^^xsd:dateTime .
+
+:emprunt2 a :Emprunt ;
+    :empruntePar       :utilisateur2 ;
+    :documentEmprunté  :livre2 ;
+    :dateDebutEmprunt  "2025-05-28T14:30:00"^^xsd:dateTime ;
+    :dateFinEmprunt    "2025-06-08T14:30:00"^^xsd:dateTime .
