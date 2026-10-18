@@ -29,4 +29,24 @@ class VectorDBProviderFactory:
                 distance_method=self.config.VECTOR_DB_DISTANCE_METHOD,
             )
 
+        if provider == VectorDBEnums.TURBOVEC.value:
+            from .providers.TurbovecProvider import TurbovecProvider
+
+            db_path = self.base_controller.get_database_path(db_name=self.config.VECTOR_DB_PATH)
+
+            return TurbovecProvider(
+                db_path=db_path,
+                distance_method=self.config.VECTOR_DB_DISTANCE_METHOD,
+            )
+
+        if provider == VectorDBEnums.LIGHTRAG.value:
+            from .providers.LightRAGProvider import LightRAGProvider
+
+            db_path = self.base_controller.get_database_path(db_name=self.config.VECTOR_DB_PATH)
+
+            return LightRAGProvider(
+                db_path=db_path,
+                distance_method=self.config.VECTOR_DB_DISTANCE_METHOD,
+            )
+
         raise ValueError(f"Unsupported vector database provider: {provider!r}")
